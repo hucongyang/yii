@@ -47,7 +47,7 @@ AppAsset::register($this);
         'items' => $menuItems,
     ]);
     $rightMenuItems = [];
-    $rightMenuItems[] = ['label' => '投稿', 'url' => ['/my/create-article']];
+//    $rightMenuItems[] = ['label' => '投稿', 'url' => ['/my/create-article']];
     if (Yii::$app->user->isGuest) {
         $rightMenuItems[] = ['label' => Yii::t('app', 'Signup'), 'url' => ['/site/signup'], 'options' => ['class' => 'pull-right']];
         $rightMenuItems[] = ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']];
@@ -87,8 +87,8 @@ AppAsset::register($this);
         <div class="row">
             <div class="col-sm-3"><a href="<?= \yii\helpers\Url::to(['/page?id=1'])?>" target="_blank">免责声明</a></div>
             <div class="col-sm-3"><a href="<?= \yii\helpers\Url::to(['/page?id=2'])?>" target="_blank">关于我们</a></div>
-            <div class="col-sm-3"><a href="<?= \yii\helpers\Url::to(['/suggest/create'])?>" target="_blank">问题反馈</a></div>
-            <div class="col-sm-3"><a href="https://github.com/yidashi/yii" target="_blank">获取源码</a></div>
+<!--            <div class="col-sm-3"><a href="--><?//= \yii\helpers\Url::to(['/suggest/create'])?><!--" target="_blank">问题反馈</a></div>-->
+<!--            <div class="col-sm-3"><a href="https://github.com/yidashi/yii" target="_blank">获取源码</a></div>-->
         </div>
     </div>
     <hr/>

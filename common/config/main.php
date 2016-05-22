@@ -5,7 +5,7 @@ return [
     'runtimePath' => dirname(dirname(__DIR__)).'/runtime',
     'timezone' => 'PRC',
     'language' => 'zh-CN',
-    'name' => '饮水思源',
+    'name' => '典藏网后台管理系统',
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
