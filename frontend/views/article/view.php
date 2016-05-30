@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $model->title;
         <h1><?= $model->title ?></h1>
     </div>
     <div class="action">
-        <span class="user"><a href="/user/31325"><span class="fa fa-user"></span> <?= $model->author?></a></span>
+        <span class="user"><span class="fa fa-user"></span> <?= $model->author?></span>
         <span class="time"><span class="fa fa-clock-o"></span> <?= date('Y-m-d H:i', $model->created_at) ?></span>
         <span class="views"><span class="fa fa-eye"></span> <?= $model->trueView?>次浏览</span>
         <span class="comments"><a href="#comments"><span class="fa fa-comments-o"></span> <?=$model->comment?>条评论</a></span>
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $model->title;
     <!--内容-->
     <div class="view-content"><?= \yii\helpers\Markdown::process($model->data->content) ?></div>
     <?php if (!empty($model->source)):?><div class="well well-sm">原文链接: <?= $model->source?></div><?php endif;?>
-    <div class="well">带到手机上看<?= Html::img(\yii\helpers\Url::to(['/qrcode', 'text' => Yii::$app->request->absoluteUrl])) ?></div>
+<!--    <div class="well">带到手机上看--><?//= Html::img(\yii\helpers\Url::to(['/qrcode', 'text' => Yii::$app->request->absoluteUrl])) ?><!--</div>-->
 
     <!--分享-->
     <?= \common\widgets\share\Share::widget()?>

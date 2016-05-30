@@ -61,6 +61,10 @@ return [
         ]
     ],
     'modules' => [
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'imageAllowExtensions'=>['jpg','png','gif']
+        ],
         'admin' => [
             'class' => 'mdm\admin\Module',
         ],

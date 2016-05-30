@@ -147,27 +147,31 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $news = Article::find()
+        // 电子刊
+        $magazines = Article::find()
             ->active()
             ->andWhere(['<>', 'cover', ''])
             ->orderBy(['id' => SORT_DESC])
-            ->limit(40)
+            ->limit(2)
             ->all();
-        $slider = Article::find()
+        // 人气阅读
+        $read = Article::find()
+            ->active()
+            ->andWhere(['<>', 'cover', ''])
+            ->orderBy(['id' => SORT_DESC])
+            ->limit(4)
+            ->all();
+        // 市场动态
+        $news = Article::find()
             ->active()
             ->orderBy(['view' => SORT_DESC])
-            ->limit(5)
-            ->all();
-        $recommend = Article::find()
-            ->active()
-            ->orderBy(['comment' => SORT_DESC])
-            ->limit(10)
+            ->limit(4)
             ->all();
 
         return $this->render('index', [
+            'magazines' => $magazines,
+            'read'  => $read,
             'news' => $news,
-            'slider' => $slider,
-            'recommend' => $recommend,
         ]);
     }
     /**

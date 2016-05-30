@@ -144,6 +144,11 @@ class ArticleController extends Controller
         $model = new Article();
         $dataModel = new ArticleData();
         if ($model->load(Yii::$app->request->post()) && $dataModel->load(Yii::$app->request->post())) {
+            // 替换文章内容中图片的url
+            $content = $dataModel->content;
+            $rep_content = str_replace('/uploads', Yii::$app->request->hostInfo . '/uploads', $content);
+            $dataModel->content = $rep_content;
+            
             $isValid = $model->validate();
             if ($isValid) {
                 $model->save(false);

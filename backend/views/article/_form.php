@@ -6,6 +6,7 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $dataModel common\models\ArticleData */
 ?>
 
 <div class="article-form">
@@ -14,7 +15,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($dataModel, 'content')->widget('kucha\ueditor\UEditor', ['options' => ['style' => 'height:500px']]) ?>
+    <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
+
+<!--    --><?//= $form->field($dataModel, 'content')->widget('kucha\ueditor\UEditor', ['options' => ['style' => 'height:500px']]) ?>
+
+    <?= $form->field($dataModel, 'content')->widget(\yii\redactor\widgets\Redactor::className(),
+        [
+            'clientOptions' => [
+                'imageManagerJson' => ['/redactor/upload/image-json'],
+                'imageUpload' => ['/redactor/upload/image'],
+                'fileUpload' => ['/redactor/upload/file'],
+                'lang' => 'zh_cn',
+                'plugins' => ['clips', 'fontcolor','imagemanager']
+            ]
+        ]
+    ) ?>
 
     <?= $form->field($model, 'category_id')->dropDownList(\common\models\Category::find()->select('title')->indexBy('id')->column()) ?>
 

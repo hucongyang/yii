@@ -296,8 +296,8 @@ class Uploader
     private function getFilePath()
     {
         $fullname = $this->fullName;
-//        $rootPath = $_SERVER['DOCUMENT_ROOT'];
-        $rootPath = \Yii::getAlias('@staticroot');
+        $rootPath = $_SERVER['DOCUMENT_ROOT'];
+//        $rootPath = \Yii::getAlias('@staticroot');
         if (substr($fullname, 0, 1) != '/') {
             $fullname = '/' . $fullname;
         }

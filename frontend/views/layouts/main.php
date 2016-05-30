@@ -27,52 +27,140 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'options' => [
-            'class' => 'navbar-inverse navbar-static-top',
-        ],
-    ]);
-    $menuItems = [];
-    $menuItems[] = ['label' => '首页', 'url' => Yii::$app->homeUrl];
-    foreach (\common\models\Category::find()->all() as $nav) {
-        $menuItems[] = ['label' => $nav['title'], 'url' => ['/article/index', 'cate' => $nav['name']]];
-    }
-    foreach (\common\models\Nav::find()->all() as $nav) {
-        $menuItems[] = ['label' => $nav['title'], 'url' => $nav['route']];
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
-        'items' => $menuItems,
-    ]);
-    $rightMenuItems = [];
-//    $rightMenuItems[] = ['label' => '投稿', 'url' => ['/my/create-article']];
-    if (Yii::$app->user->isGuest) {
-        $rightMenuItems[] = ['label' => Yii::t('app', 'Signup'), 'url' => ['/site/signup'], 'options' => ['class' => 'pull-right']];
-        $rightMenuItems[] = ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']];
-    } else {
-        $rightMenuItems[] = [
-            'label' => Yii::$app->user->identity->username,
-            'items' => [
-                [
-                    'label' => '我的投稿',
-                    'url' => ['/my/article-list'],
-                ],
-                [
-                    'label' => '退出',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post'],
-                ],
-            ],
-        ];
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $rightMenuItems,
-    ]);
-    NavBar::end();
-    ?>
+<header class="dc-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-10 col-md-offset-1 dc-header-pane">
+                <div class="dc-header-container">
+                    <nav class="navbar navbar-default dc-header-nav">
+                        <a class="dc-nav-pane-logo" href="#">
+                            <img alt="logo" src="/img/logo.png">
+                        </a>
+
+                        <div class="dc-nav-menu-pane" id="dc-header">
+
+                            <?php
+                            NavBar::begin([
+                                'options' => [
+                                    'class' => 'navbar-btn dc-nav-user-btn'
+                                ],
+                            ]);
+                            $rightMenuItems = [];
+                            //    $rightMenuItems[] = ['label' => '投稿', 'url' => ['/my/create-article']];
+                            if (Yii::$app->user->isGuest) {
+                                $rightMenuItems[] = ['label' => Yii::t('app', 'Signup'), 'url' => ['/site/signup']];
+                                $rightMenuItems[] = ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']];
+                            } else {
+                                $rightMenuItems[] = [
+                                    'label' => Yii::$app->user->identity->username,
+                                    'items' => [
+                                        [
+                                            'label' => '我的收藏',
+                                            'url' => ['/my/article-list'],
+                                        ],
+                                        [
+                                            'label' => '退出',
+                                            'url' => ['/site/logout'],
+                                            'linkOptions' => ['data-method' => 'post'],
+                                        ],
+                                    ],
+                                ];
+                            }
+                            echo Nav::widget([
+                                'options' => ['class' => 'navbar-nav'],
+                                'items' => $rightMenuItems,
+                            ]);
+                            NavBar::end();
+                            ?>
+                        </div>
+                    </nav>
+
+                    <div class="hidden-xs dc-header-menus-pane">
+                        <?php
+                        NavBar::begin([
+                            'options' => [
+                                'class' => 'dc-header-menus-box',
+                            ],
+                        ]);
+                        $menuItems = [];
+                        $menuItems[] = ['label' => '首页', 'url' => Yii::$app->homeUrl];
+                        foreach (\common\models\Category::find()->all() as $nav) {
+                            $menuItems[] = ['label' => $nav['title'], 'url' => ['/article/index', 'cate' => $nav['name']]];
+                        }
+                        foreach (\common\models\Nav::find()->all() as $nav) {
+                            $menuItems[] = ['label' => $nav['title'], 'url' => $nav['route']];
+                        }
+                        echo Nav::widget([
+                            'options' => ['class' => 'navbar-nav'],
+                            'items' => $menuItems,
+                        ]);
+                        NavBar::end();
+                        ?>
+                    </div>
+
+
+                    <ul class="dc-header-ads-pane">
+                        <li class="dc-header-ads-item"><a href="#"><img class="img-responsive img" src="/img/a1.png"
+                                                                        alt=""/></a></li>
+                        <li class="dc-header-ads-item"><a href="#"><img class="img-responsive img" src="/img/a2.png"
+                                                                        alt=""/></a></li>
+                        <li class="dc-header-ads-item"><a href="#"><img class="img-responsive img" src="/img/a3.png"
+                                                                        alt=""/></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<?php
+//NavBar::begin([
+//    'options' => [
+//        'class' => 'navbar-inverse navbar-static-top',
+//    ],
+//]);
+//$menuItems = [];
+//$menuItems[] = ['label' => '首页', 'url' => Yii::$app->homeUrl];
+//foreach (\common\models\Category::find()->all() as $nav) {
+//    $menuItems[] = ['label' => $nav['title'], 'url' => ['/article/index', 'cate' => $nav['name']]];
+//}
+//foreach (\common\models\Nav::find()->all() as $nav) {
+//    $menuItems[] = ['label' => $nav['title'], 'url' => $nav['route']];
+//}
+//echo Nav::widget([
+//    'options' => ['class' => 'navbar-nav'],
+//    'items' => $menuItems,
+//]);
+//$rightMenuItems = [];
+////    $rightMenuItems[] = ['label' => '投稿', 'url' => ['/my/create-article']];
+//if (Yii::$app->user->isGuest) {
+//    $rightMenuItems[] = ['label' => Yii::t('app', 'Signup'), 'url' => ['/site/signup'], 'options' => ['class' => 'pull-right']];
+//    $rightMenuItems[] = ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']];
+//} else {
+//    $rightMenuItems[] = [
+//        'label' => Yii::$app->user->identity->username,
+//        'items' => [
+//            [
+//                'label' => '我的收藏',
+//                'url' => ['/my/article-list'],
+//            ],
+//            [
+//                'label' => '退出',
+//                'url' => ['/site/logout'],
+//                'linkOptions' => ['data-method' => 'post'],
+//            ],
+//        ],
+//    ];
+//}
+//echo Nav::widget([
+//    'options' => ['class' => 'navbar-nav navbar-right'],
+//    'items' => $rightMenuItems,
+//]);
+//NavBar::end();
+//?>
+
+
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -80,7 +168,6 @@ AppAsset::register($this);
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
-</div>
 
 <footer class="footer">
     <div class="container">

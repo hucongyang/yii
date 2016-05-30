@@ -9,7 +9,9 @@ Yii::setAlias('tests', dirname(dirname(__DIR__)) . '/tests');
 Yii::setAlias('runnerScript', dirname(dirname(dirname(__FILE__))) .'/yii');
 Yii::setAlias('staticroot', dirname(dirname(__DIR__)) . '/static');
 if (YII_ENV_PROD) {
-    Yii::setAlias('static', 'http://image.51siyuan.cn');
+//    Yii::setAlias('static', 'http://image.51siyuan.cn');
+    Yii::setAlias('static', 'http://backend/');
 } else {
-    Yii::setAlias('static', 'http://127.0.0.1/yii/static');
+//    Yii::setAlias('static', 'http://127.0.0.1/yii/static');
+    Yii::setAlias('static', 'http://backend/');
 }
