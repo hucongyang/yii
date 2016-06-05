@@ -17,6 +17,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'desc')->textInput(['maxlength' => true]) ?>
+
 <!--    --><?//= $form->field($dataModel, 'content')->widget('kucha\ueditor\UEditor', ['options' => ['style' => 'height:500px']]) ?>
 
     <?= $form->field($dataModel, 'content')->widget(\yii\redactor\widgets\Redactor::className(),

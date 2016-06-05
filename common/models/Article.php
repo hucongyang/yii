@@ -39,6 +39,7 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             [['title'], 'required'],
+            [['desc'], 'required'],
             [['status', 'category_id', 'view', 'up', 'down', 'user_id'], 'integer'],
             [['category_id', 'status'], 'filter', 'filter' => 'intval'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
@@ -62,6 +63,7 @@ class Article extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'title' => '标题',
+            'desc' => '文章简介',
             'author' => '作者',
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
