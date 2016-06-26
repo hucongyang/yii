@@ -34,7 +34,7 @@ AppAsset::register($this);
                 <div class="dc-header-container">
                     <nav class="navbar navbar-default dc-header-nav">
                         <a class="dc-nav-pane-logo" href="#">
-                            <img alt="logo" src="/img/logo.png">
+                            <img alt="logo" src="/img/logo 2.png">
                         </a>
 
                         <div class="dc-nav-menu-pane" id="dc-header">
@@ -100,12 +100,21 @@ AppAsset::register($this);
 
 
                     <ul class="dc-header-ads-pane">
-                        <li class="dc-header-ads-item"><a href="#"><img class="img-responsive img" src="/img/a1.png"
-                                                                        alt=""/></a></li>
-                        <li class="dc-header-ads-item"><a href="#"><img class="img-responsive img" src="/img/a2.png"
-                                                                        alt=""/></a></li>
-                        <li class="dc-header-ads-item"><a href="#"><img class="img-responsive img" src="/img/a3.png"
-                                                                        alt=""/></a></li>
+                        <li class="dc-header-ads-item">
+                            <a href="#">
+                                <img class="img-responsive img" src="/img/banner01.jpg" alt=""/>
+                            </a>
+                        </li>
+                        <li class="dc-header-ads-item">
+                            <a href="#">
+                                <img class="img-responsive img" src="/img/banner02.jpg" alt=""/>
+                            </a>
+                        </li>
+                        <li class="dc-header-ads-item">
+                            <a href="#">
+                                <img class="img-responsive img" src="/img/banner03.jpg" alt=""/>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -169,21 +178,39 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 
-<footer class="footer">
+<footer class="dc-footer">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-3"><a href="<?= \yii\helpers\Url::to(['/page?id=1'])?>" target="_blank">免责声明</a></div>
-            <div class="col-sm-3"><a href="<?= \yii\helpers\Url::to(['/page?id=2'])?>" target="_blank">关于我们</a></div>
-<!--            <div class="col-sm-3"><a href="--><?//= \yii\helpers\Url::to(['/suggest/create'])?><!--" target="_blank">问题反馈</a></div>-->
-<!--            <div class="col-sm-3"><a href="https://github.com/yidashi/yii" target="_blank">获取源码</a></div>-->
+        <p class="text-center dc-footer-text">访问数量：12340次</p>
+
+        <div class="clearfix dc-footer-link-pane">
+            <ul class="dc-footer-link-ul">
+                <li class="dc-footer-link-item"><a href="#">公司简介</a></li>
+                <li class="dc-footer-link-item"><a href="#">新闻动态</a></li>
+                <li class="dc-footer-link-item"><a href="#">联系方式</a></li>
+                <li class="dc-footer-link-item"><a href="#">招聘英才</a></li>
+                <li class="dc-footer-link-item"><a href="#">开放平台</a></li>
+                <li class="dc-footer-link-item"><a href="#">关于我们</a></li>
+            </ul>
         </div>
-    </div>
-    <hr/>
-    <div class="container">
-        <p class="pull-left">&copy; <?= \common\models\Config::get('SITE_NAME').' '.date('Y') ?></p>
-        <p class="pull-right"><?= \common\models\Config::get('SITE_ICP')?></p>
+        <p class="text-center dc-footer-copy"><a href="#">Copyright © 2016 典藏 All Rights Reserved</a></p>
     </div>
 </footer>
+
+<!--<footer class="footer">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-sm-3"><a href="--><?//= \yii\helpers\Url::to(['/page?id=1'])?><!--" target="_blank">免责声明</a></div>-->
+<!--            <div class="col-sm-3"><a href="--><?//= \yii\helpers\Url::to(['/page?id=2'])?><!--" target="_blank">关于我们</a></div>-->
+<!--<!--            <div class="col-sm-3"><a href="-->--><?////= \yii\helpers\Url::to(['/suggest/create'])?><!--<!--" target="_blank">问题反馈</a></div>-->-->
+<!--<!--            <div class="col-sm-3"><a href="https://github.com/yidashi/yii" target="_blank">获取源码</a></div>-->-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <hr/>-->
+<!--    <div class="container">-->
+<!--        <p class="pull-left">&copy; --><?//= \common\models\Config::get('SITE_NAME').' '.date('Y') ?><!--</p>-->
+<!--        <p class="pull-right">--><?//= \common\models\Config::get('SITE_ICP')?><!--</p>-->
+<!--    </div>-->
+<!--</footer>-->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content"></div>
